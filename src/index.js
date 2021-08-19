@@ -5,7 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./store";
+import dotenv from "dotenv";
 
+dotenv.config();
+
+console.log("env vars", process.env);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

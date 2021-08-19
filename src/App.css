@@ -7,12 +7,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -28,11 +22,366 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* font-family: "Gowun Batang", serif;
+font-family: "Sigmar One", cursive; */
+
+body {
+  margin: 0;
+  font-family: "Gowun Batang", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+/* Nav */
+
+.nav-mello {
+  font-family: "Sigmar One", cursive;
+  color: #f0a500 !important;
+}
+
+.nav-link:hover {
+  color: #e45826 !important;
+}
+
+#search-btn {
+  border-color: #e45826;
+  color: #e45826;
+}
+
+#search-btn:hover {
+  background-color: #e45826;
+  color: white;
+}
+
+#cart-count {
+  background-color: #f0a500;
+  color: white;
+  border-radius: 50px;
+  padding: 1px 7px 1px 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Home Screen */
+
+#big-mello {
+  color: #f0a500;
+  background-color: transparent;
+  position: absolute;
+  font-size: 10rem;
+  font-family: "Sigmar One", cursive;
+  margin: 6% auto;
+  width: 100vw;
+}
+
+#bonfire {
+  max-height: 100vh;
+  min-width: 100vw;
+}
+
+.credit {
+  background-color: transparent;
+  position: absolute;
+  height: 10px;
+}
+
+.home-screen {
+  height: 100vh;
+}
+
+#landing-p {
+  position: absolute;
+  font-family: "Gowun Batang", serif;
+  color: #f0a500;
+  margin: 40vh auto;
+  width: 100vw;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 780px) {
+  #big-mello {
+    font-size: 5rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  #bonfire {
+    height: 100%;
+    width: 200%;
   }
+
+  #landing-p {
+    margin: 20vh auto;
+    width: 100vw;
+    font-size: 2rem;
+    padding: 0 15px;
+  }
+}
+
+/* STORE FRONT */
+
+.card {
+  width: 18rem;
+}
+
+.card-title > a {
+  color: black;
+  font-size: 2.5rem;
+}
+
+.card-title > a:hover {
+  color: #e45826;
+  text-decoration: none;
+}
+
+.card-img-top {
+  width: 40%;
+  margin: 1rem auto;
+}
+
+.page-header {
+  margin: 1rem;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-btn {
+  background-color: #f0a500;
+  border-color: #f0a500;
+}
+
+.item-btn:hover {
+  background-color: #e45826;
+  border-color: #e45826;
+}
+
+/* PRODUCT DETAIL */
+
+.detail-price {
+  color: #e45826;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail-submit {
+  width: 30vw;
+  margin: 0.5rem;
+}
+
+.detail-qty {
+  width: 10vw;
+  margin: 0.5rem;
+}
+
+/* CART */
+
+.cart-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-width: 415px;
+  height: 20vh;
+  align-content: center;
+  border-bottom: black 1px solid;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.cart-img {
+  width: 8vw;
+  height: 15vh;
+  padding: 0.5rem;
+}
+
+.cart-screen {
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 40vw;
+  height: 20vh;
+  padding: 1rem;
+  padding-left: 6rem;
+}
+
+#order-sum {
+  align-content: center;
+  margin: 2rem auto;
+}
+
+.cart-card-title {
+  font-size: 1.5rem;
+  padding-top: 0.6rem;
+}
+
+.del-btn {
+  color: #e45826;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+}
+
+.del-btn:hover {
+  color: white;
+  background-color: #e45826;
+}
+
+.cart-title {
+  color: black !important;
+}
+
+.checkout-btn {
+  color: black;
+  border-color: #e45826;
+}
+
+.checkout-btn:hover {
+  background-color: black;
+  color: #f0a500;
+  border-color: #f0a500;
+}
+
+#subtotal {
+  font-size: 2rem;
+  color: teal;
+}
+
+@media screen and (max-width: 880px) {
+  .cart-card {
+    flex-direction: column;
+  }
+
+  .cart-img {
+    width: 15vw;
+  }
+
+  .cart-screen {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #order-sum {
+    margin: 15rem auto;
+  }
+  .cart-items {
+    width: unset;
+    margin-bottom: 10px;
+  }
+  .cart-screen {
+    display: block;
+  }
+}
+
+/* CHECKOUT */
+
+#checkout-sum {
+  padding-right: 30%;
+  padding-left: 30%;
+}
+
+.total-row {
+  border-top: 8px solid #f0a500;
+  font-weight: bold;
+}
+
+/* Edit Products Page */
+
+#table-img {
+  width: 4vw;
+}
+
+.product-list {
+  align-content: center;
+  text-align: center;
+}
+
+.admin-btn {
+  color: black;
+  border-color: #e45826;
+  background-color: #e45826;
+  margin: 10px;
+}
+
+.edit-btn {
+  color: white;
+}
+
+#btn-col {
+  display: flex;
+}
+
+#thank-you {
+  color: #f0a500;
+  background-color: transparent;
+  position: absolute;
+  font-size: 5rem;
+  font-family: "Sigmar One", cursive;
+  margin: 6% auto;
+  width: 100vw;
+}
+
+#return-link {
+  position: absolute;
+  font-size: 2rem;
+  background-color: darkturquoise;
+  color: white;
+  border-radius: 20px;
+  padding: 1.4rem;
+  width: 33vw;
+  margin: 600px auto;
+  left: 0px;
+  right: 0px;
+}
+#return-link:hover {
+  border: #f0a500;
+  border-style: solid;
+  text-decoration: none;
+}
+
+#restricted {
+  margin: 25% auto;
+  color: red;
+}
+#restricted-return-link {
+  position: absolute;
+  font-size: 2rem;
+  background-color: darkturquoise;
+  color: white;
+  border-radius: 20px;
+  padding: 1.4rem;
+  width: 33vw;
+  margin: 50px auto;
+  left: 0px;
+  right: 0px;
+}
+
+#order-num {
+  position: absolute;
+  margin: 60vh auto;
+  font-size: 1rem;
+  font-weight: bold;
+  right: 0;
+  left: 0;
 }

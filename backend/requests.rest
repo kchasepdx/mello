@@ -1,0 +1,85 @@
+
+
+GET http://localhost:5000/api/kittens/kitties
+
+###
+
+POST http://localhost:5000/api/users/register
+Content-Type: application/json
+
+        {"name": "Mickey",
+        "email": "mouse@mouse.com",
+        "password": "bigears"}
+
+###
+
+POST http://localhost:5000/api/users/login
+Content-Type: application/json
+
+{"email": "mouse@mouse.com",
+"password": "bigears"}
+
+###
+
+POST http://localhost:5000/api/products/editproducts
+Content-Type: application/json
+
+{
+      "_id": "1",
+      "name": "Yellow Hoodie",
+      "category": "hoodie",
+      "image": "../images/yellow.png",
+      "price": 65,
+      "brand": "bumblebee",
+      "rating": 4.5,
+      "numReviews": 10,
+      "countInStock": 6
+    }
+        
+###
+GET http://localhost:5000/api/products/editproducts
+###
+
+GET http://localhost:5000/api/products/610dfa40cbe0135519167af8
+
+###
+
+GET http://localhost:5000/api/products/category/hoodie
+
+### 
+PUT http://localhost:5000/api/products/editproducts
+Content-Type: application/json
+
+        {"name": "Beige Hoodie",
+        "brand": "camel",
+        "category": "hoodie",
+        "image": "../images/beige.png",
+        "price": 75,
+        "countInStock": 55,
+        "_id": "610f4df13e89f85fe600105a"}
+
+###
+
+POST http://localhost:5000/api/checkout/create-checkout-session
+Content-Type: application/json
+headers: { Authorization: "Bearer sk_test_51JP9KrEn3tIYtbk5gCwjfu5u7XxVnEJ9oW2scGCPvauCs9jLAMceY6SL9TPPmjiNhdjDU0pJNjZANjhdIPsygEk200gEzpwnsQ" },
+
+      [{
+        "product": "4",
+        "name": "Green Beanie",
+        "image": "../images/greenbeanie.png",
+        "priceInCents": 10000,
+        "countInStock": 6,
+        "qty": 3
+      },
+      {
+        "product": "3",
+        "name": "Red Beanie",
+        "image": "../images/greenbeanie.png",
+        "priceInCents": 50000,
+        "countInStock": 6,
+        "qty": 1
+      }]
+     
+    
+

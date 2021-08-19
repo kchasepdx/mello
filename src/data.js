@@ -31,7 +31,7 @@ const data = {
       brand: "raven",
       rating: 9.5,
       numReviews: 10,
-      countInStock: 8,
+      countInStock: 6,
     },
     {
       _id: "4",
