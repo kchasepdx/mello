@@ -11,11 +11,11 @@ function cartReducer(state = { cartItems: [] }, action) {
   switch (action.type) {
     case CART_ADD_ITEM:
       const item = action.payload;
-      const product = state.cartItems.find((x) => x.product === item.product);
+      const product = state.cartItems.find((x) => x.id === item.id);
       if (product) {
         return {
           cartItems: state.cartItems.map((x) =>
-            x.product === product.product ? item : x
+            x.id === product.id ? item : x
           ),
         };
       }
@@ -23,15 +23,13 @@ function cartReducer(state = { cartItems: [] }, action) {
 
     case CART_REMOVE_ITEM:
       return {
-        cartItems: state.cartItems.filter(
-          (x) => x.product !== action.payload.product
-        ),
+        cartItems: state.cartItems.filter((x) => x.id !== action.payload.id),
       };
 
     case CART_UPDATE_ITEM:
       const updatedItem = action.payload;
       const updatedCartItems = state.cartItems.filter(
-        (x) => x.product !== updatedItem.product
+        (x) => x.id !== updatedItem.id
       );
       return {
         cartItems: [...updatedCartItems, updatedItem],

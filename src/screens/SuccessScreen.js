@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory, useLocation } from "react-router-dom";
-import { deleteFromCart } from "../actions/CartActions";
+import { Link, useLocation } from "react-router-dom";
+
 import { updateInventory } from "../actions/ProductActions";
 
 function SuccessScreen() {
@@ -26,6 +26,7 @@ function SuccessScreen() {
       setRender(true);
       return;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -41,8 +42,8 @@ function SuccessScreen() {
       ) : (
         <div className="home-screen container-fluid">
           <h1 id="restricted">
-            <i class="fas fa-key"></i>Restricted Access
-            <i class="fas fa-key"></i>
+            <i className="fas fa-key"></i>Restricted Access
+            <i className="fas fa-key"></i>
           </h1>
           <Link id="restricted-return-link" to="/">
             <i className="fas fa-chevron-circle-left"></i> Return to Store

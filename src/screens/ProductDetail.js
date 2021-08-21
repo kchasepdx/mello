@@ -1,8 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getProductDetail } from "../actions/ProductActions";
-import data from "../data";
 
 function ProductDetail(props) {
   const id = props.match.params.id;
@@ -19,19 +19,11 @@ function ProductDetail(props) {
     }
   }
 
-  console.log("id is " + id);
-
   if (error) console.log(error);
 
   useEffect(() => {
     console.log(id);
     dispatch(getProductDetail(props.match.params.id));
-    if (product) {
-      console.log("product:" + product.name);
-    }
-    return () => {
-      //
-    };
   }, []);
 
   return (
@@ -56,7 +48,7 @@ function ProductDetail(props) {
               <label>Quantity:</label>
               <select onChange={(e) => setQty(e.target.value)} value={qty}>
                 {[...Array(product.countInStock).keys()].map((x) => (
-                  <option type="number" className="detail-qty" key={x}>
+                  <option className="detail-qty" key={x}>
                     {x + 1}
                   </option>
                 ))}

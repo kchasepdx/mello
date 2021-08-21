@@ -12,7 +12,6 @@ import {
 } from "../constants/cartConstants";
 
 dotenv.config();
-console.log("env vars", process.env);
 
 const addToCart = (currentItem, qty) => async (dispatch, getState) => {
   try {
@@ -20,14 +19,14 @@ const addToCart = (currentItem, qty) => async (dispatch, getState) => {
     dispatch({
       type: CART_ADD_ITEM,
       payload: {
-        product: product._id,
+        id: product._id || product.id,
         name: product.name,
         image: product.image,
         price: product.price,
         countInStock: product.countInStock,
         category: product.category,
         brand: product.brand,
-        qty,
+        qty: qty,
       },
     });
     const {
@@ -55,19 +54,17 @@ const deleteFromCart = (currentItem) => async (dispatch, getState) => {
 };
 
 const updateIteminCart = (currentItem, qty) => async (dispatch, getState) => {
-  console.log("called action", qty);
-
   try {
     const product = currentItem;
     dispatch({
       type: CART_UPDATE_ITEM,
       payload: {
-        product: product.product,
+        id: product._id || product.id,
         name: product.name,
         image: product.image,
         price: product.price,
         countInStock: product.countInStock,
-        qty,
+        qty: qty,
       },
     });
     const {

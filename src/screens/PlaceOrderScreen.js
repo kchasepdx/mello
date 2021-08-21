@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, sliceCheckout } from "../actions/CartActions";
-import data from "../data";
+import { sliceCheckout } from "../actions/CartActions";
 
 function PlaceOrderScreen(props) {
   const dispatch = useDispatch();

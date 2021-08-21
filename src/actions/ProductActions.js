@@ -112,8 +112,8 @@ const updateInventory = (cartItems) => async (dispatch, getState) => {
     console.log("newCounts Array: " + newCounts);
 
     const updateStock = newCounts.map((x) => {
-      console.log("id to change: " + x.product);
-      return Axios.put("/api/products/editproducts/" + x.product, x);
+      console.log("id to change: " + x.id);
+      return Axios.put("/api/products/editproducts/" + x.id, x);
     });
     await Promise.all(updateStock);
     dispatch({ type: UPDATE_INVENTORY_SUCCESS, payload: updateStock });

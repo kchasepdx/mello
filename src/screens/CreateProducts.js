@@ -41,11 +41,11 @@ function EditProductsScreen(props) {
     setPrice("");
     setBrand("");
     setCountInStock("");
-  }, [saveSuccess]);
+  }, [saveSuccess, dispatch]);
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [deleteSuccess]);
+  }, [deleteSuccess, dispatch]);
 
   function handleSubmit(event) {
     event.preventDefault();

@@ -22,11 +22,17 @@ function CartScreen(props) {
     if (id) {
       dispatch(getProductDetail(id));
     }
-
     if (product) {
-      dispatch(addToCart(product, qty));
+      const duplicate = cartItems.filter((x) => x.id === product._id);
+      console.log("duplicate: " + duplicate);
+      if (duplicate) {
+        const updatedProductQty = (duplicate.qty += qty);
+        dispatch(updateIteminCart(product, updatedProductQty));
+      } else {
+        dispatch(addToCart(product, qty));
+      }
     } else {
-      console.log(error);
+      console.log("did not get product " + error);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -56,7 +62,7 @@ function CartScreen(props) {
                 />
                 <div className="card-body cart-card-body">
                   <h5 className="cart-card-title ">
-                    <a className="cart-title" href={"/product" + item._id}>
+                    <a className="cart-title" href={"/product" + item.id}>
                       {item.name}
                     </a>
                   </h5>
@@ -65,14 +71,18 @@ function CartScreen(props) {
                     Qty:
                     <select
                       value={item.qty}
+                      type="number"
                       onChange={(e) => {
-                        console.log("change", e.target.value);
-                        dispatch(updateIteminCart(item, e.target.value));
+                        console.log("change", Number(e.target.value));
+                        dispatch(
+                          updateIteminCart(item, Number(e.target.value))
+                        );
                       }}
                     >
                       {[...Array(item.countInStock).keys()].map((y) => (
                         <option
                           value={y + 1}
+                          type="number"
                           className="detail-qty"
                           key={y + 1}
                         >

@@ -19,7 +19,7 @@ function LoginScreen(props) {
         props.history.push(redirect);
       }
     }
-  }, [userInfo]);
+  }, [props.history, redirect, userInfo]);
 
   function handleSubmit(event) {
     event.preventDefault();
