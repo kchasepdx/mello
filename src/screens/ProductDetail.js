@@ -9,7 +9,7 @@ function ProductDetail(props) {
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetail);
   const { loading, product, error } = productDetail;
-  const [qty, setQty] = useState("1");
+  const [qty, setQty] = useState(1);
 
   function addToCart() {
     if (product.countInStock >= qty) {

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   addToCart,
   deleteFromCart,
@@ -12,9 +13,8 @@ function CartScreen(props) {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   const id = props.match.params.id;
-  const qty = props.location.search
-    ? Number(props.location.search.split("=")[1])
-    : 1;
+  const qty = props.location.search ? props.location.search.split("=")[1] : 1;
+  const QTY = Number(qty);
   const productDetail = useSelector((state) => state.productDetail);
   const { product, error } = productDetail;
 
@@ -22,15 +22,11 @@ function CartScreen(props) {
     if (id) {
       dispatch(getProductDetail(id));
     }
-    if (product) {
-      const duplicate = cartItems.filter((x) => x.id === product._id);
-      console.log("duplicate: " + duplicate);
-      if (duplicate) {
-        const updatedProductQty = (duplicate.qty += qty);
-        dispatch(updateIteminCart(product, updatedProductQty));
-      } else {
-        dispatch(addToCart(product, qty));
-      }
+
+    // ASYNC??
+    if (id && product) {
+      dispatch(addToCart(product, QTY));
+      console.log("QTY type " + typeof QTY);
     } else {
       console.log("did not get product " + error);
     }
@@ -54,7 +50,7 @@ function CartScreen(props) {
         <div className="cart-items">
           {cartItems.map((item) => {
             return (
-              <div key={item._id} className="col-15 card cart-card">
+              <div key={item.id} className="col-15 card cart-card">
                 <img
                   className="card-img-top cart-img"
                   src={item.image}
@@ -62,9 +58,9 @@ function CartScreen(props) {
                 />
                 <div className="card-body cart-card-body">
                   <h5 className="cart-card-title ">
-                    <a className="cart-title" href={"/product" + item.id}>
+                    <Link className="cart-title" to={"/product/" + item.id}>
                       {item.name}
-                    </a>
+                    </Link>
                   </h5>
                   <p className="card-text">${item.price}</p>
                   <div>

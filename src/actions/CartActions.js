@@ -14,24 +14,41 @@ import {
 dotenv.config();
 
 const addToCart = (currentItem, qty) => async (dispatch, getState) => {
+  const {
+    cart: { cartItems },
+  } = getState();
+  console.log("cartItems before " + JSON.stringify(cartItems));
   try {
-    const product = currentItem;
-    dispatch({
-      type: CART_ADD_ITEM,
-      payload: {
-        id: product._id || product.id,
-        name: product.name,
-        image: product.image,
-        price: product.price,
-        countInStock: product.countInStock,
-        category: product.category,
-        brand: product.brand,
-        qty: qty,
-      },
-    });
-    const {
-      cart: { cartItems },
-    } = getState();
+    // const duplicate = await cartItems.find((x) => x.id === currentItem.id);
+    const productInCart = await cartItems.filter(
+      (x) => x.id === currentItem._id
+    );
+    console.log("currentItem " + JSON.stringify(currentItem));
+    console.log("currentItem.id " + currentItem._id);
+    console.log("productInCart: " + JSON.stringify(productInCart));
+    console.log("productInCart type: " + typeof productInCart);
+    console.log("current Item qty " + qty);
+
+    if (productInCart && productInCart.length > 0) {
+      const updatedProductQty = productInCart[0].qty + qty;
+      console.log("productInCart qty:" + Number(productInCart[0].qty));
+      dispatch(updateIteminCart(currentItem, updatedProductQty));
+    } else {
+      dispatch({
+        type: CART_ADD_ITEM,
+        payload: {
+          id: currentItem._id || currentItem.id,
+          name: currentItem.name,
+          image: currentItem.image,
+          price: currentItem.price,
+          countInStock: currentItem.countInStock,
+          category: currentItem.category,
+          brand: currentItem.brand,
+          qty,
+        },
+      });
+    }
+
     Cookies.set("cartItems", JSON.stringify(cartItems));
   } catch (error) {
     console.log(error);
