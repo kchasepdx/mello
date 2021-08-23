@@ -38,6 +38,6 @@ db.once("open", function () {
   console.log("host", db.host);
 });
 
-app.listen(5000, () => {
-  console.log("server started at http://localhost:5000");
+app.listen("https://mello-store-backend.herokuapp.com/", () => {
+  console.log("server started at https://mello-store-backend.herokuapp.com/");
 });
