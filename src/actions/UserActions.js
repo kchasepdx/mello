@@ -9,7 +9,7 @@ import {
   USER_REGISTER_SUCCESS,
 } from "../constants/userConstants";
 
-const serverURL = "https://mello-store-backend.herokuapp.com/";
+const serverURL = "https://mello-store-backend.herokuapp.com";
 
 const login = (email, password) => async (dispatch) => {
   dispatch({ type: USER_LOGIN_REQUEST, payload: { email, password } });

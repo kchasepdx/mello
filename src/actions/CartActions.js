@@ -12,7 +12,7 @@ import {
 } from "../constants/cartConstants";
 
 dotenv.config();
-const serverURL = "https://mello-store-backend.herokuapp.com/";
+const serverURL = "https://mello-store-backend.herokuapp.com";
 
 const addToCart = (currentItem, qty) => async (dispatch, getState) => {
   const {

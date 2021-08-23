@@ -23,7 +23,7 @@ import {
 } from "../constants/productConstants";
 import { deleteFromCart } from "./CartActions";
 
-const serverURL = "https://mello-store-backend.herokuapp.com/";
+const serverURL = "https://mello-store-backend.herokuapp.com";
 
 const saveProduct = (product) => async (dispatch, getState) => {
   try {
