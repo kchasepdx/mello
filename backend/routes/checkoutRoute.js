@@ -3,7 +3,7 @@ import Stripe from "stripe";
 import { STRIPE_TEST_KEY } from "../config.js";
 
 const router = express.Router();
-const YOUR_DOMAIN = "http://localhost:3000";
+const YOUR_DOMAIN = "https://mellostore.herokuapp.com/";
 
 const stripe = new Stripe(STRIPE_TEST_KEY);
 

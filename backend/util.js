@@ -1,8 +1,6 @@
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "./config.js";
 
-import User from "./models/userModels.js";
-
 function getToken(user) {
   return jwt.sign(
     {
