@@ -23,6 +23,8 @@ import {
 } from "../constants/productConstants";
 import { deleteFromCart } from "./CartActions";
 
+const serverURL = "https://mello-store-backend.herokuapp.com/";
+
 const saveProduct = (product) => async (dispatch, getState) => {
   try {
     dispatch({ type: PRODUCT_SAVE_REQUEST, payload: { product } });
@@ -30,16 +32,20 @@ const saveProduct = (product) => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState();
     if (product._id === undefined) {
-      const { data } = await Axios.post("/api/products/editproducts", product, {
-        headers: {
-          Authorization: "Bearer " + userInfo.token,
-          AdminUser: userInfo.isAdmin,
-        },
-      });
+      const { data } = await Axios.post(
+        serverURL + "/api/products/editproducts",
+        product,
+        {
+          headers: {
+            Authorization: "Bearer " + userInfo.token,
+            AdminUser: userInfo.isAdmin,
+          },
+        }
+      );
       dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
     } else {
       const { data } = await Axios.put(
-        "/api/products/editproducts/" + product._id,
+        serverURL + "/api/products/editproducts/" + product._id,
         product,
         {
           headers: {
@@ -58,7 +64,7 @@ const saveProduct = (product) => async (dispatch, getState) => {
 const getProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST, payload: {} });
-    const { data } = await Axios.get("/api/products/editproducts");
+    const { data } = await Axios.get(serverURL + "/api/products/editproducts");
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
     let cookieData = JSON.stringify(data);
     Cookies.set("products", cookieData);
@@ -70,7 +76,7 @@ const getProducts = () => async (dispatch) => {
 const getProductDetail = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAIL_REQUEST, payload: id });
-    const { data } = await Axios.get("/api/products/" + id);
+    const { data } = await Axios.get(serverURL + "/api/products/" + id);
     dispatch({ type: PRODUCT_DETAIL_SUCCESS, payload: data });
     let cookieData = JSON.stringify(data);
     Cookies.set("product", cookieData);
@@ -82,7 +88,9 @@ const getProductDetail = (id) => async (dispatch) => {
 const setCategory = (category) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_CATEGORY_REQUEST, payload: category });
-    const { data } = await Axios.get("/api/products/category/" + category);
+    const { data } = await Axios.get(
+      serverURL + "/api/products/category/" + category
+    );
     dispatch({ type: PRODUCT_CATEGORY_SUCCESS, payload: data });
     let cookieData = JSON.stringify(data);
     Cookies.set("categoryList", cookieData);
@@ -94,7 +102,7 @@ const setCategory = (category) => async (dispatch) => {
 const deleteProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DELETE_REQUEST, payload: id });
-    const { data } = await Axios.put("/api/products/delete/" + id);
+    const { data } = await Axios.put(serverURL + "/api/products/delete/" + id);
     dispatch({ type: PRODUCT_DELETE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PRODUCT_DELETE_FAIL, payload: error.message });
@@ -113,7 +121,7 @@ const updateInventory = (cartItems) => async (dispatch, getState) => {
 
     const updateStock = newCounts.map((x) => {
       console.log("id to change: " + x.id);
-      return Axios.put("/api/products/editproducts/" + x.id, x);
+      return Axios.put(serverURL + "/api/products/editproducts/" + x.id, x);
     });
     await Promise.all(updateStock);
     dispatch({ type: UPDATE_INVENTORY_SUCCESS, payload: updateStock });

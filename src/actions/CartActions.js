@@ -12,6 +12,7 @@ import {
 } from "../constants/cartConstants";
 
 dotenv.config();
+const serverURL = "https://mello-store-backend.herokuapp.com/";
 
 const addToCart = (currentItem, qty) => async (dispatch, getState) => {
   const {
@@ -103,7 +104,7 @@ const sliceCheckout = (cartItems) => async (dispatch, getState) => {
     console.log("key", process.env.REACT_APP_STRIPE_SECRET_TEST_KEY);
 
     const URL = await Axios.post(
-      "/api/checkout/create-checkout-session",
+      serverURL + "/api/checkout/create-checkout-session",
       cartItems,
       {
         headers: {
