@@ -91,9 +91,16 @@ code {
 
 #nav-user-div {
   display: flex;
+  margin: 0 auto;
 }
 #user-icon {
   color: #35d0ba;
+  display: block;
+  padding: 0.5rem 0rem;
+}
+
+.nav-item {
+  display: flex;
 }
 
 /* Home Screen */
@@ -246,6 +253,12 @@ code {
 .modal-header h5 {
   font-size: 2rem;
   font-family: "Gowun Batang", serif;
+}
+
+@media screen and (max-width: 411px) {
+  .card {
+    width: 27rem;
+  }
 }
 
 /* PRODUCT DETAIL */
