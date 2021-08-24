@@ -52,21 +52,12 @@ function userLoginReducer(state = {}, action) {
         error: action.payload,
       };
 
-    case USER_LOGOUT_REQUEST:
-      return {
-        loading: true,
-      };
     case USER_LOGOUT_SUCCESS:
       return {
         loading: false,
         userInfo: [],
       };
 
-    case USER_LOGOUT_FAIL:
-      return {
-        loading: false,
-        error: action.payload,
-      };
     default:
       return state;
   }

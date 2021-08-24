@@ -39,7 +39,7 @@ function Nav() {
     dispatch(deleteFromCart(item));
   }
 
-  function handleClick(userInfo) {
+  function handleClick() {
     dispatch(logout());
   }
 

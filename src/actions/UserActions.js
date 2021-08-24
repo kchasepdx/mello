@@ -29,15 +29,10 @@ const login = (email, password) => async (dispatch) => {
   }
 };
 
-const logout = (userInfo) => async (dispatch) => {
-  dispatch({ type: USER_LOGOUT_REQUEST, payload: userInfo });
-  try {
-    dispatch({ type: USER_LOGOUT_SUCCESS, payload: {} });
-    let cookieData = {};
-    Cookies.set("userInfo", cookieData);
-  } catch (error) {
-    dispatch({ type: USER_LOGOUT_FAIL, payload: error.message });
-  }
+const logout = () => (dispatch) => {
+  dispatch({ type: USER_LOGOUT_SUCCESS, payload: {} });
+  let cookieData = {};
+  Cookies.set("userInfo", cookieData);
 };
 
 const register = (name, email, password) => async (dispatch) => {
