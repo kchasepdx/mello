@@ -187,7 +187,7 @@ function Nav() {
             {userInfo ? (
               <div id="nav-user-div">
                 <li className="nav-item">
-                  <i class="fas fa-user-circle"></i>
+                  <i id="user-icon" class="fas fa-user-circle"></i>
                   <p className="nav-link">{userInfo.name}</p>
                 </li>
                 <li className="nav-item">

@@ -89,8 +89,11 @@ code {
   color: #35d0ba;
 }
 
-.nav-user-div {
+#nav-user-div {
   display: flex;
+}
+#user-icon {
+  color: #35d0ba;
 }
 
 /* Home Screen */
