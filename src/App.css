@@ -78,6 +78,19 @@ code {
   background-color: transparent;
   color: #f0a500;
   border: none;
+  margin: 0;
+  vertical-align: bottom;
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+.logout-btn:hover {
+  background-color: transparent;
+  color: #35d0ba;
+}
+
+.nav-user-div {
+  display: flex;
 }
 
 /* Home Screen */
