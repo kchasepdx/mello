@@ -185,15 +185,19 @@ function Nav() {
               {/* USER INFO */}
             </li>
             {userInfo ? (
-              <li className="nav-item">
-                <p className="nav-link">{userInfo.name}</p>
-                <button
-                  className="btn btn-primary logout-btn detail-submit"
-                  onClick={handleClick}
-                >
-                  Logout
-                </button>
-              </li>
+              <div>
+                <li className="nav-item">
+                  <p className="nav-link">{userInfo.name}</p>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="btn btn-primary logout-btn "
+                    onClick={handleClick}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </div>
             ) : (
               <li className="nav-item">
                 <Link className="nav-link" to="/login">
