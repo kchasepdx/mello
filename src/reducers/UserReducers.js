@@ -53,7 +53,7 @@ function userLoginReducer(state = {}, action) {
     case USER_LOGOUT_SUCCESS:
       return {
         loading: false,
-        userInfo: "",
+        userInfo: [],
       };
 
     default:

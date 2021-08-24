@@ -184,7 +184,7 @@ function Nav() {
               </ul>
               {/* USER INFO */}
             </li>
-            {userInfo ? (
+            {userInfo.name ? (
               <div>
                 <li className="nav-item">
                   <p className="nav-link">{userInfo.name}</p>
