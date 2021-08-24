@@ -28,7 +28,7 @@ const reducer = combineReducers({
 });
 
 const userInfo =
-  (Cookies.get("userInfo") && JSON.parse(Cookies.get("userInfo"))) || [];
+  (Cookies.get("userInfo") && JSON.parse(Cookies.get("userInfo"))) || null;
 const cartItems =
   (Cookies.get("cartItems") && JSON.parse(Cookies.get("cartItems"))) || [];
 const products =
