@@ -59,7 +59,6 @@ function StoreFront(props) {
                 Item Added to Cart!
               </h5>
             </div>
-            {/* <div className="modal-body">...</div> */}
             <div className="modal-footer">
               <button
                 type="button"
@@ -79,7 +78,12 @@ function StoreFront(props) {
                 </button>
               </Link>
               <Link to="/checkout">
-                <button type="button" className="btn btn-secondary">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
                   <i className="far fa-credit-card"></i>
                 </button>
               </Link>
