@@ -79,9 +79,9 @@ code {
   color: #f0a500;
   border: none;
   margin: 0;
-  vertical-align: bottom;
   display: block;
   padding: 0.5rem 1rem;
+  height: 40px;
 }
 
 .logout-btn:hover {
