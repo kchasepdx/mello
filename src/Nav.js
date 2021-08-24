@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import dotenv from "dotenv";
 import { setCategory } from "./actions/ProductActions";
 import { deleteFromCart } from "./actions/CartActions";
+import { logout } from "./actions/UserActions";
 
 function Nav() {
   const userLogin = useSelector((state) => state.userLogin);
@@ -36,6 +37,10 @@ function Nav() {
 
   function removeFromCart(item) {
     dispatch(deleteFromCart(item));
+  }
+
+  function handleClick(userInfo) {
+    dispatch(logout());
   }
 
   return (
@@ -177,10 +182,17 @@ function Nav() {
                   </Link>
                 </li>
               </ul>
+              {/* USER INFO */}
             </li>
             {userInfo ? (
               <li className="nav-item">
                 <p className="nav-link">{userInfo.name}</p>
+                <button
+                  className="btn btn-primary item-btn detail-submit"
+                  onClick={handleClick}
+                >
+                  Logout
+                </button>
               </li>
             ) : (
               <li className="nav-item">

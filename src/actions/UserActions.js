@@ -4,6 +4,9 @@ import {
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
+  USER_LOGOUT_FAIL,
+  USER_LOGOUT_REQUEST,
+  USER_LOGOUT_SUCCESS,
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
@@ -23,6 +26,17 @@ const login = (email, password) => async (dispatch) => {
     Cookies.set("userInfo", cookieData);
   } catch (error) {
     dispatch({ type: USER_LOGIN_FAIL, payload: error.message });
+  }
+};
+
+const logout = (userInfo) => async (dispatch) => {
+  dispatch({ type: USER_LOGOUT_REQUEST, payload: userInfo });
+  try {
+    dispatch({ type: USER_LOGOUT_SUCCESS, payload: {} });
+    let cookieData = {};
+    Cookies.set("userInfo", cookieData);
+  } catch (error) {
+    dispatch({ type: USER_LOGOUT_FAIL, payload: error.message });
   }
 };
 
@@ -56,4 +70,4 @@ const register = (name, email, password) => async (dispatch) => {
   }
 };
 
-export { register, login };
+export { register, login, logout };
