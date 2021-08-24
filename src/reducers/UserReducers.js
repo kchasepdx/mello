@@ -5,9 +5,7 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
-  USER_LOGOUT_REQUEST,
   USER_LOGOUT_SUCCESS,
-  USER_LOGOUT_FAIL,
 } from "../constants/userConstants";
 
 function userRegisterReducer(state = {}, action) {
@@ -55,7 +53,7 @@ function userLoginReducer(state = {}, action) {
     case USER_LOGOUT_SUCCESS:
       return {
         loading: false,
-        userInfo: [],
+        userInfo: "",
       };
 
     default:

@@ -4,8 +4,6 @@ import {
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
-  USER_LOGOUT_FAIL,
-  USER_LOGOUT_REQUEST,
   USER_LOGOUT_SUCCESS,
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
@@ -30,7 +28,7 @@ const login = (email, password) => async (dispatch) => {
 };
 
 const logout = () => (dispatch) => {
-  dispatch({ type: USER_LOGOUT_SUCCESS, payload: {} });
+  dispatch({ type: USER_LOGOUT_SUCCESS });
   let cookieData = {};
   Cookies.set("userInfo", cookieData);
 };
