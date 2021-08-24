@@ -49,11 +49,11 @@ function PlaceOrderScreen(props) {
           </tr>
           <tr>
             <td>Taxes:</td>
-            <td>${tax}.toFixed(2)</td>
+            <td>${tax.toFixed(2)}</td>
           </tr>
           <tr className="total-row">
             <td>Total:</td>
-            <td>${total}.toFixed(2)</td>
+            <td>${total.toFixed(2)}</td>
           </tr>
         </table>
 
