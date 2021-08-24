@@ -188,7 +188,7 @@ function Nav() {
               <li className="nav-item">
                 <p className="nav-link">{userInfo.name}</p>
                 <button
-                  className="btn btn-primary item-btn detail-submit"
+                  className="btn btn-primary logout-btn detail-submit"
                   onClick={handleClick}
                 >
                   Logout

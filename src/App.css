@@ -74,6 +74,12 @@ code {
   font-weight: bold;
 }
 
+.logout-btn {
+  background-color: transparent;
+  color: #f0a500;
+  border: none;
+}
+
 /* Home Screen */
 
 #big-mello {

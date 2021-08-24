@@ -59,7 +59,7 @@ function userLoginReducer(state = {}, action) {
     case USER_LOGOUT_SUCCESS:
       return {
         loading: false,
-        userInfo: action.payload,
+        userInfo: [],
       };
 
     case USER_LOGOUT_FAIL:
