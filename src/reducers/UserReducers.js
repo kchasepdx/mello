@@ -8,7 +8,7 @@ import {
   USER_LOGOUT_SUCCESS,
 } from "../constants/userConstants";
 
-function userRegisterReducer(state = {}, action) {
+function userRegisterReducer(state = { userInfo: null }, action) {
   console.log(action.type);
   console.log(action.payload);
   switch (action.type) {
@@ -32,7 +32,7 @@ function userRegisterReducer(state = {}, action) {
   }
 }
 
-function userLoginReducer(state = {}, action) {
+function userLoginReducer(state = { userInfo: null }, action) {
   switch (action.type) {
     case USER_LOGIN_REQUEST:
       return {
