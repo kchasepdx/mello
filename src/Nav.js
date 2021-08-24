@@ -104,7 +104,7 @@ function Nav() {
                   })}
                   <li className="dropdown-item">
                     <div className="subtotal-nav detail-submit">
-                      Subtotal: ${subtotal}
+                      Subtotal: ${subtotal.toFixed(2)}
                     </div>
                   </li>
                   <li className="dropdown-item nav-cart-links">

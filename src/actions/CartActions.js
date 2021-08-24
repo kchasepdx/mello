@@ -18,17 +18,12 @@ const addToCart = (currentItem, qty) => async (dispatch, getState) => {
   const {
     cart: { cartItems },
   } = getState();
-  console.log("cartItems before " + JSON.stringify(cartItems));
+
   try {
     // const duplicate = await cartItems.find((x) => x.id === currentItem.id);
     const productInCart = await cartItems.filter(
       (x) => x.id === currentItem._id
     );
-    console.log("currentItem " + JSON.stringify(currentItem));
-    console.log("currentItem.id " + currentItem._id);
-    console.log("productInCart: " + JSON.stringify(productInCart));
-    console.log("productInCart type: " + typeof productInCart);
-    console.log("current Item qty " + qty);
 
     if (productInCart && productInCart.length > 0) {
       const updatedProductQty = productInCart[0].qty + qty;

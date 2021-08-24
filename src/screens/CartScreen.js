@@ -101,7 +101,7 @@ function CartScreen(props) {
         <div id="order-sum">
           <h1>SubTotal:</h1>
 
-          <p id="subtotal">${subtotal}</p>
+          <p id="subtotal">${subtotal.toFixed(2)}</p>
 
           <a className="btn checkout-btn" href="/checkout">
             Checkout

@@ -41,19 +41,19 @@ function PlaceOrderScreen(props) {
         <table className="table">
           <tr>
             <td>SubTotal:</td>
-            <td>${subtotal}</td>
+            <td>${subtotal.toFixed(2)}</td>
           </tr>
           <tr>
             <td>Shipping:</td>
-            <td>{subtotal >= 100 ? "FREE" : "$10"}</td>
+            <td>{subtotal >= 100 ? "FREE" : "$10.00"}</td>
           </tr>
           <tr>
             <td>Taxes:</td>
-            <td>${tax}</td>
+            <td>${tax}.toFixed(2)</td>
           </tr>
           <tr className="total-row">
             <td>Total:</td>
-            <td>${total}</td>
+            <td>${total}.toFixed(2)</td>
           </tr>
         </table>
 
