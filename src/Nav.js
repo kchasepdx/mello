@@ -184,7 +184,7 @@ function Nav() {
               </ul>
               {/* USER INFO */}
             </li>
-            {userInfo && userInfo.length > 0 ? (
+            {userInfo ? (
               <div>
                 <li className="nav-item">
                   <p className="nav-link">{userInfo.name}</p>
