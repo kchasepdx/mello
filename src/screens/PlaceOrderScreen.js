@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { sliceCheckout } from "../actions/CartActions";
 
 function PlaceOrderScreen(props) {
@@ -33,9 +34,9 @@ function PlaceOrderScreen(props) {
   return (
     <div>
       <h1 className="page-header">Order Summary</h1>
-      <a className="btn" href="/cart">
+      <Link className="btn" href="/cart">
         Return to Cart
-      </a>
+      </Link>
 
       <div id="checkout-sum">
         <table className="table">

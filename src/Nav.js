@@ -44,9 +44,9 @@ function Nav() {
         id="nav-bar-id"
         className="navbar navbar-expand-lg navbar-light bg-light"
       >
-        <a className="navbar-brand nav-mello" href="/">
+        <Link className="navbar-brand nav-mello" href="/">
           <i className="fas fa-fire"></i>mello
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"

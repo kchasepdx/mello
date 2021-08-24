@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { login } from "../actions/UserActions";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 // import jwt from "jsonwebtoken";
 
 function LoginScreen(props) {
@@ -63,7 +64,7 @@ function LoginScreen(props) {
           Submit
         </button>
       </form>
-      <a href="/register">Need to Register?</a>
+      <Link href="/register">Need to Register?</Link>
     </div>
   );
 }
