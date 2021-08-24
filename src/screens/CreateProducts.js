@@ -133,7 +133,7 @@ function EditProductsScreen(props) {
                     <td>
                       <img alt="product" id="table-img" src={x.image}></img>
                     </td>
-                    <td>{x.price}</td>
+                    <td>${x.price}</td>
                     <td>{x.brand}</td>
                     <td>{x.countInStock}</td>
                     <td id="btn-col">
