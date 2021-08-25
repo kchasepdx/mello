@@ -10,7 +10,7 @@ function StoreFront(props) {
   const setCategory = useSelector((state) => state.setCategory);
 
   const { loading, products, error } = listProducts;
-  const { loadingCategory, categoryList } = setCategory;
+  const { categoryList } = setCategory;
 
   useEffect(() => {
     dispatch(getProducts());
@@ -43,8 +43,8 @@ function StoreFront(props) {
         {" "}
         {currentCategory ? currentCategory + "s" : "everything"}
       </h1>
-      {/* modal */}
 
+      {/* Item Added to Cart Modal */}
       <div
         className="modal fade"
         id="exampleModal"
@@ -92,7 +92,6 @@ function StoreFront(props) {
         </div>
       </div>
 
-      {loadingCategory && <i className="fas fa-spinner"></i>}
       {categoryList && categoryList.length > 0 ? (
         <div className="product-grid">
           {categoryList.map((x) => (
@@ -137,7 +136,7 @@ function StoreFront(props) {
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
-                    <Link href={"/product" + x._id}>{x.name}</Link>
+                    <Link to={"/product" + x._id}>{x.name}</Link>
                   </h5>
                   <p className="card-text">${x.price}</p>
                   <Link
