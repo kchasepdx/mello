@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { sliceCheckout } from "../actions/CartActions";
+import { stripeCheckout } from "../actions/CartActions";
 
 function PlaceOrderScreen(props) {
   const dispatch = useDispatch();
@@ -12,14 +12,17 @@ function PlaceOrderScreen(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Calculate subtotal of items in cart
   const subtotal = cartItems
     .map((x) => x.price * x.qty)
     .reduce(function (x, y) {
       return x + y;
     }, 0);
 
+  // Calculate tax
   const tax = subtotal * 0.15;
 
+  // Calculate Total
   let total = subtotal;
   if (subtotal >= 100) {
     total = subtotal + tax;
@@ -27,8 +30,9 @@ function PlaceOrderScreen(props) {
     total = subtotal + 15 + tax;
   }
 
+  // Go to Stripe Checkout
   function handleClick() {
-    dispatch(sliceCheckout(cartItems));
+    dispatch(stripeCheckout(cartItems));
   }
 
   return (

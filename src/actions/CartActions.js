@@ -89,7 +89,7 @@ const updateIteminCart = (currentItem, qty) => async (dispatch, getState) => {
   }
 };
 
-const sliceCheckout = (cartItems) => async (dispatch, getState) => {
+const stripeCheckout = (cartItems) => async (dispatch, getState) => {
   try {
     dispatch({
       type: CART_CHECKOUT_REQUEST,
@@ -121,4 +121,4 @@ const sliceCheckout = (cartItems) => async (dispatch, getState) => {
   }
 };
 
-export { addToCart, deleteFromCart, updateIteminCart, sliceCheckout };
+export { addToCart, deleteFromCart, updateIteminCart, stripeCheckout };

@@ -8,16 +8,15 @@ function StoreFront(props) {
   const dispatch = useDispatch();
   const listProducts = useSelector((state) => state.listProducts);
   const setCategory = useSelector((state) => state.setCategory);
-
   const { loading, products, error } = listProducts;
   const { categoryList } = setCategory;
 
   useEffect(() => {
     dispatch(getProducts());
-    console.log("useEffect handled");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Display All Products or Hoodies or Beanies
   var currentCategory = "";
   if (categoryList === undefined) {
     currentCategory = undefined;
@@ -27,8 +26,10 @@ function StoreFront(props) {
     currentCategory = categoryList[0].category;
   }
 
+  // Log error getting products
   if (error) console.log(error);
 
+  // Quick Add item to cart
   const quickAddToCart = (x) => {
     if (x.countInStock >= 1) {
       dispatch(addToCart(x, 1));
@@ -91,7 +92,7 @@ function StoreFront(props) {
           </div>
         </div>
       </div>
-
+      {/* Display by selected category */}
       {categoryList && categoryList.length > 0 ? (
         <div className="product-grid">
           {categoryList.map((x) => (
@@ -127,36 +128,40 @@ function StoreFront(props) {
           <i className="fas fa-spinner"></i>
         </p>
       ) : (
-        <div className="product-grid">
-          {products &&
-            products.map((x) => (
-              <div key={x._id} className="col-sm-6 card">
-                <Link to={"/product/" + x._id}>
-                  <img className="card-img-top" src={x.image} alt="item" />
-                </Link>
-                <div className="card-body">
-                  <h5 className="card-title">
-                    <Link to={"/product" + x._id}>{x.name}</Link>
-                  </h5>
-                  <p className="card-text">${x.price}</p>
-                  <Link
-                    to={"/product/" + x._id}
-                    className="btn btn-primary item-btn"
-                  >
-                    Take a look.
+        {
+          /* Display all products - no category selected */
+        }(
+          <div className="product-grid">
+            {products &&
+              products.map((x) => (
+                <div key={x._id} className="col-sm-6 card">
+                  <Link to={"/product/" + x._id}>
+                    <img className="card-img-top" src={x.image} alt="item" />
                   </Link>
-                  <button
-                    className="btn btn-primary item-btn add-cart"
-                    onClick={() => quickAddToCart(x)}
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                  >
-                    <i className="fas fa-cart-plus"></i>
-                  </button>
+                  <div className="card-body">
+                    <h5 className="card-title">
+                      <Link to={"/product" + x._id}>{x.name}</Link>
+                    </h5>
+                    <p className="card-text">${x.price}</p>
+                    <Link
+                      to={"/product/" + x._id}
+                      className="btn btn-primary item-btn"
+                    >
+                      Take a look.
+                    </Link>
+                    <button
+                      className="btn btn-primary item-btn add-cart"
+                      onClick={() => quickAddToCart(x)}
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                    >
+                      <i className="fas fa-cart-plus"></i>
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
-        </div>
+              ))}
+          </div>
+        )
       )}
     </div>
   );

@@ -11,6 +11,7 @@ function ProductDetail(props) {
   const { loading, product, error } = productDetail;
   const [qty, setQty] = useState(1);
 
+  // Add item to cart and redirect to cart page
   function addToCart() {
     if (product.countInStock >= qty) {
       props.history.push("/cart/" + id + "?qty=" + qty);
@@ -19,10 +20,11 @@ function ProductDetail(props) {
     }
   }
 
+  // Log error getting product info
   if (error) console.log(error);
 
+  // Get selected product information
   useEffect(() => {
-    console.log(id);
     dispatch(getProductDetail(props.match.params.id));
   }, []);
 
@@ -45,21 +47,23 @@ function ProductDetail(props) {
             <h5 className="card-title">{product.brand}</h5>
             <p className="card-text detail-price">${product.price}</p>
             <form className="form-group" onSubmit={addToCart}>
-              <label>Quantity:</label>
-              <select onChange={(e) => setQty(e.target.value)} value={qty}>
-                {[...Array(product.countInStock).keys()].map((x) => (
-                  <option className="detail-qty" key={x}>
-                    {x + 1}
-                  </option>
-                ))}
-              </select>
               {product.countInStock > 0 ? (
-                <button
-                  type="submit"
-                  className="btn btn-primary item-btn detail-submit"
-                >
-                  Add to Cart
-                </button>
+                <div>
+                  <label>Quantity:</label>
+                  <select onChange={(e) => setQty(e.target.value)} value={qty}>
+                    {[...Array(product.countInStock).keys()].map((x) => (
+                      <option className="detail-qty" key={x}>
+                        {x + 1}
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    type="submit"
+                    className="btn btn-primary item-btn detail-submit"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               ) : (
                 <button
                   type="button"

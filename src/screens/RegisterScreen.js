@@ -13,6 +13,7 @@ function RegisterScreen(props) {
     ? props.location.search.split("=")[1]
     : "/";
 
+  // Redirect to Home page upon registering
   useEffect(() => {
     if (userInfo) {
       props.history.push(redirect);
@@ -23,6 +24,7 @@ function RegisterScreen(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo]);
 
+  // Register User
   function handleSubmit(event) {
     event.preventDefault();
     dispatch(register(name, email, password));
@@ -49,7 +51,7 @@ function RegisterScreen(props) {
         </div>
         <div className="mb-3">
           <label for="exampleInputEmail1" className="form-label">
-            Email address
+            Email Address
           </label>
           <input
             type="email"
