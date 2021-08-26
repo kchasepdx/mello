@@ -49,7 +49,7 @@ function Nav() {
         id="nav-bar-id"
         className="navbar navbar-expand-lg navbar-light bg-light"
       >
-        <Link className="navbar-brand nav-mello" href="/">
+        <Link className="navbar-brand nav-mello" to="/">
           <i className="fas fa-fire"></i>mello
         </Link>
         <button
