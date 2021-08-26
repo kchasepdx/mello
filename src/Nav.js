@@ -127,10 +127,7 @@ function Nav() {
                 </ul>
               ) : (
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <i class="fas fa-ellipsis-h"></i>your cart is empty
-                    <i class="fas fa-ellipsis-h"></i>
-                  </li>
+                  <li>your cart is empty</li>
                 </ul>
               )}
             </li>
