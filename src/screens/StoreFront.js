@@ -128,40 +128,37 @@ function StoreFront(props) {
           <i className="fas fa-spinner"></i>
         </p>
       ) : (
-        {
-          /* Display all products - no category selected */
-        }(
-          <div className="product-grid">
-            {products &&
-              products.map((x) => (
-                <div key={x._id} className="col-sm-6 card">
-                  <Link to={"/product/" + x._id}>
-                    <img className="card-img-top" src={x.image} alt="item" />
+        /* Display all products - no category selected */
+        <div className="product-grid">
+          {products &&
+            products.map((x) => (
+              <div key={x._id} className="col-sm-6 card">
+                <Link to={"/product/" + x._id}>
+                  <img className="card-img-top" src={x.image} alt="item" />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">
+                    <Link to={"/product" + x._id}>{x.name}</Link>
+                  </h5>
+                  <p className="card-text">${x.price}</p>
+                  <Link
+                    to={"/product/" + x._id}
+                    className="btn btn-primary item-btn"
+                  >
+                    Take a look.
                   </Link>
-                  <div className="card-body">
-                    <h5 className="card-title">
-                      <Link to={"/product" + x._id}>{x.name}</Link>
-                    </h5>
-                    <p className="card-text">${x.price}</p>
-                    <Link
-                      to={"/product/" + x._id}
-                      className="btn btn-primary item-btn"
-                    >
-                      Take a look.
-                    </Link>
-                    <button
-                      className="btn btn-primary item-btn add-cart"
-                      onClick={() => quickAddToCart(x)}
-                      data-bs-toggle="modal"
-                      data-bs-target="#exampleModal"
-                    >
-                      <i className="fas fa-cart-plus"></i>
-                    </button>
-                  </div>
+                  <button
+                    className="btn btn-primary item-btn add-cart"
+                    onClick={() => quickAddToCart(x)}
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    <i className="fas fa-cart-plus"></i>
+                  </button>
                 </div>
-              ))}
-          </div>
-        )
+              </div>
+            ))}
+        </div>
       )}
     </div>
   );
