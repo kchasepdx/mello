@@ -48,7 +48,7 @@ function ProductDetail(props) {
             <p className="card-text detail-price">${product.price}</p>
             <form className="form-group" onSubmit={addToCart}>
               {product.countInStock > 0 ? (
-                <div>
+                <div id="qty-div">
                   <label>Quantity:</label>
                   <select onChange={(e) => setQty(e.target.value)} value={qty}>
                     {[...Array(product.countInStock).keys()].map((x) => (
@@ -65,10 +65,7 @@ function ProductDetail(props) {
                   </button>
                 </div>
               ) : (
-                <button
-                  type="button"
-                  className="btn btn-primary item-btn detail-submit"
-                >
+                <button className="btn btn-primary item-btn detail-submit">
                   Out of Stock
                 </button>
               )}
