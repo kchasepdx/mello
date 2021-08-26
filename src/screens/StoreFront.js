@@ -138,7 +138,7 @@ function StoreFront(props) {
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">
-                    <Link to={"/product" + x._id}>{x.name}</Link>
+                    <Link to={"/product/" + x._id}>{x.name}</Link>
                   </h5>
                   <p className="card-text">${x.price}</p>
                   <Link
