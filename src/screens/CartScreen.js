@@ -103,7 +103,7 @@ function CartScreen(props) {
 
           <p id="subtotal">${subtotal.toFixed(2)}</p>
 
-          <Link className="btn checkout-btn" href="/checkout">
+          <Link className="btn checkout-btn" to="/checkout">
             Checkout
           </Link>
         </div>
