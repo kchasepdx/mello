@@ -1,4 +1,5 @@
 <h1>🛒 Shopping App 🛒</h1>
+<a href="https://mellostore.herokuapp.com/">Live Demo</a>
 
 <p>Created With:</p>
 <ul>
@@ -44,6 +45,14 @@
   <li>React-router (To handle routing)</li>
   <li>Axios (For http requests)</li>
   <li>React Bootstrap</li>
+</ul>
+
+<h2>Planned Improvements</h2>
+<ul>
+  <li>Allow admin accounts to create admin accounts.</li>
+  <li>Add product rating system.</li>
+  <li>Access order detail from Stripe.</li>
+  <li>Add features to customer accounts.</li>
 </ul>
 
 
